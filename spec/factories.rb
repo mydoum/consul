@@ -164,7 +164,7 @@ FactoryGirl.define do
     end
 
     trait :archived do
-      created_at (Setting["months_to_archive_proposals"].to_i + 1).months.ago
+      created_at (Setting.find_by(key: "months_to_archive_proposals").to_i + 1).months.ago
     end
 
     trait :with_hot_score do
